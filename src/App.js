@@ -6,7 +6,7 @@ class App extends Component{
  constructor(){
    super();
    this.state={
-     human:[],
+     user:[],
      monstar:[],
      post:[],
      cats:[
@@ -37,7 +37,11 @@ class App extends Component{
    fetch('https://jsonplaceholder.typicode.com/posts')
    .then(res=>res.json)
    .then(posts=>this.setState({post:posts}))
-  //  .then(human=> console.log(this.state.human))
+   .then(console.log(this.state.post));
+   fetch('https://jsonplaceholder.typicode.com/users')
+   .then(respose=>respose.json)
+   .then(users=>this.setState({user:users}).console.log(this.state.user))
+  //  .then(posts=> console.log(this.state.post))
  }
  
   render() {
