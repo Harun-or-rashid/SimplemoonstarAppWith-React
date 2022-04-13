@@ -8,6 +8,7 @@ class App extends Component{
    this.state={
      human:[],
      monstar:[],
+     post:[],
      cats:[
        {
          name:'Biltu'
@@ -32,9 +33,13 @@ class App extends Component{
  componentDidMount(){
    fetch('https://jsonplaceholder.typicode.com/users')
    .then(res => res.json())
-   .then(users => this.setState({monstar:users}))
+   .then(users => this.setState({monstar:users}));
+   fetch('https://jsonplaceholder.typicode.com/posts')
+   .then(res=>res.json)
+   .then(posts=>this.setState({post:posts}))
   //  .then(human=> console.log(this.state.human))
  }
+ 
   render() {
     return(
     <div className="App">
