@@ -2,6 +2,7 @@ import React ,{Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { CardList } from './components/card-list/card-list.component';
+import { User } from './components/user/user.component';
 class App extends Component{
  constructor(){
    super();
@@ -39,8 +40,8 @@ class App extends Component{
    .then(posts=>this.setState({post:posts}))
    .then(console.log(this.state.post));
    fetch('https://jsonplaceholder.typicode.com/users')
-   .then(respose=>respose.json)
-   .then(users=>this.setState({user:users}).console.log(this.state.user))
+   .then(res=>res.json())
+   .then(users=>this.setState({user:users}))
   //  .then(posts=> console.log(this.state.post))
  }
  
@@ -49,6 +50,7 @@ class App extends Component{
     <div className="App">
       <CardList monstarv={this.state.monstar}>
       </CardList>
+      <User user={this.state.user}></User>
   </div>
 
     );
