@@ -7,6 +7,7 @@ return (<div className="user-container">
     {/* <h4>{props.user.name}</h4> */}
     {/* <h4>{props.user.name.map(names=>(<li>{names}</li>))}</h4> */}
     {/* {props.user.map(users=>(<li>key={users.id} users={users.name}</li>))} */}
-{props.user.map(users=>(<div>{users.name}</div>))}
+    <h4>{props.user.name}</h4>
+{/* {props.user.map(users=>(<div>{users.name}</div>))} */}
 </div>);
 }

@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { CardList } from './components/card-list/card-list.component';
 import { User } from './components/user/user.component';
+import { UserList } from './components/user-list/user-list.component';
 class App extends Component{
  constructor(){
    super();
@@ -50,7 +51,7 @@ class App extends Component{
     <div className="App">
       <CardList monstarv={this.state.monstar}>
       </CardList>
-      <User user={this.state.user}></User>
+      <UserList user={this.state.user}></UserList>
   </div>
 
     );
