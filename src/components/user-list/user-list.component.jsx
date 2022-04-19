@@ -6,5 +6,5 @@ import  './user-list.styles.css';
 export const UserList= props =>{
 
     return(<div className='user-list'>
-    {props.user.map(user => (<User key={user.id} user={user}></User>))}
+    {props.serachUser.map(user => (<User key={user.id} user={user}></User>))}
     </div>)}

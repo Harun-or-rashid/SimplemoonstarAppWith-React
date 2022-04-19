@@ -12,6 +12,7 @@ class App extends Component{
      monstar:[],
      post:[],
      searchField:'',
+     searchFieldUser:'',
      cats:[
        {
          name:'Biltu'
@@ -49,8 +50,11 @@ class App extends Component{
  
   render() {
     const filteredMonster=this.state.monstar.filter((monstar)=>{
-      return monstar.name.toLocaleLowerCase().includes(this.state.searchField)
-   })
+      return monstar.name.toLocaleLowerCase().includes(this.state.searchField);
+   });
+   const fillteredUser=this.state.user.filter((user)=>{
+    return user.name.toLocaleLowerCase().includes(this.state.searchFieldUser)
+  })
     return(
     <div className="App">
       <input className='search-box'
@@ -73,16 +77,14 @@ class App extends Component{
       type='search'
       placeholder='search user'
       onChange={(event)=>{
-        const searchUser=event.target.value.toLocaleLowerCase();
-        const fillteredUser=this.state.user.filter((user)=>{
-          return  user.name.toLocaleLowerCase().includes(searchUser);
-          })
+        const searchFieldUser=event.target.value.toLocaleLowerCase();
+     
           this.setState(()=>{
-            return {user:fillteredUser}
+            return {searchFieldUser}
           })
       }}
       />
-      <UserList user={this.state.user}></UserList>
+      <UserList user={this.state.user} serachUser={fillteredUser}></UserList>
   </div>
 
     );
