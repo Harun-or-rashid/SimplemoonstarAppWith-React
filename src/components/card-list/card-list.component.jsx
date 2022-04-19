@@ -6,5 +6,5 @@ import  './card-list.styles.css';
 export const CardList= props =>{
 
     return(<div className='card-list'>
-        {props.monstarv.map(monstar => (<Card key={monstar.id} monstarv={monstar} ></Card>))}
+        {props.filteredMonster.map(monstar => (<Card key={monstar.id} monstarv={monstar} ></Card>))}
         </div>)}

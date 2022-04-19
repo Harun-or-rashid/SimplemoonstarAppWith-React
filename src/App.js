@@ -11,6 +11,7 @@ class App extends Component{
      user:[],
      monstar:[],
      post:[],
+     searchField:'',
      cats:[
        {
          name:'Biltu'
@@ -47,6 +48,9 @@ class App extends Component{
  }
  
   render() {
+    const filteredMonster=this.state.monstar.filter((monstar)=>{
+      return monstar.name.toLocaleLowerCase().includes(this.state.searchField)
+   })
     return(
     <div className="App">
       <input className='search-box'
@@ -54,17 +58,15 @@ class App extends Component{
              placeholder='search monstar'
              onChange={(event)=>{
                console.log(event)
-               const searchString=event.target.value.toLocaleLowerCase();
-               const filteredMonster=this.state.monstar.filter((monstar)=>{
-                  return monstar.name.toLocaleLowerCase().includes(searchString)
-               })
+               const searchField=event.target.value.toLocaleLowerCase();
+              
                this.setState(()=>{
-                return {monstar:filteredMonster}
+                return {searchField}
               })
              }}
              
       />
-      <CardList monstarv={this.state.monstar}>
+      <CardList monstarv={this.state.monstar} filteredMonster={filteredMonster}>
       </CardList>
       <input 
       className='search-user'
