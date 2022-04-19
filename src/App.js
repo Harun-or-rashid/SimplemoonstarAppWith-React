@@ -66,6 +66,20 @@ class App extends Component{
       />
       <CardList monstarv={this.state.monstar}>
       </CardList>
+      <input 
+      className='search-user'
+      type='search'
+      placeholder='search user'
+      onChange={(event)=>{
+        const searchUser=event.target.value.toLocaleLowerCase();
+        const fillteredUser=this.state.user.filter((user)=>{
+          return  user.name.toLocaleLowerCase().includes(searchUser);
+          })
+          this.setState(()=>{
+            return {user:fillteredUser}
+          })
+      }}
+      />
       <UserList user={this.state.user}></UserList>
   </div>
 
